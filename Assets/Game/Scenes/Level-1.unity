@@ -993,7 +993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2584821486356150288, guid: e4b68287a7eb3cc4cb04f159ce510b14, type: 3}
       propertyPath: m_SurfaceArc
-      value: 150
+      value: 140
       objectReference: {fileID: 0}
     - target: {fileID: 2584821486356150290, guid: e4b68287a7eb3cc4cb04f159ce510b14, type: 3}
       propertyPath: m_RootOrder
@@ -1286,7 +1286,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2584821486356150288, guid: e4b68287a7eb3cc4cb04f159ce510b14, type: 3}
       propertyPath: m_SurfaceArc
-      value: 150
+      value: 140
       objectReference: {fileID: 0}
     - target: {fileID: 2584821486356150290, guid: e4b68287a7eb3cc4cb04f159ce510b14, type: 3}
       propertyPath: m_RootOrder
@@ -1368,7 +1368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2584821486356150288, guid: e4b68287a7eb3cc4cb04f159ce510b14, type: 3}
       propertyPath: m_SurfaceArc
-      value: 150
+      value: 140
       objectReference: {fileID: 0}
     - target: {fileID: 2584821486356150290, guid: e4b68287a7eb3cc4cb04f159ce510b14, type: 3}
       propertyPath: m_RootOrder
@@ -1457,8 +1457,10 @@ GameObject:
   - component: {fileID: 1130556496}
   - component: {fileID: 1130556495}
   - component: {fileID: 1130556494}
-  - component: {fileID: 1130556498}
   - component: {fileID: 1130556499}
+  - component: {fileID: 1130556498}
+  - component: {fileID: 1130556500}
+  - component: {fileID: 1130556501}
   m_Layer: 3
   m_Name: Hero
   m_TagString: Untagged
@@ -1553,7 +1555,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1434839991, guid: 78b39230a1cee2f46858265d9771608b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1614,6 +1616,40 @@ MonoBehaviour:
   _speed: 6
   _jumpForce: 12
   _characterMotion: {fileID: 1130556498}
+--- !u!95 &1130556500
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130556493}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bdf25b46aab50114fa6885e2a1903af1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1130556501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130556493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0272133876797a4ba4949f9fc093aab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 1130556500}
+  _characterMotion: {fileID: 1130556498}
 --- !u!1001 &1131426914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1621,6 +1657,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1324121930}
     m_Modifications:
+    - target: {fileID: 2584821486356150288, guid: 5171c8b24c4c32a4ab58c3818c90fd47, type: 3}
+      propertyPath: m_SurfaceArc
+      value: 140
+      objectReference: {fileID: 0}
     - target: {fileID: 2584821486356150290, guid: 5171c8b24c4c32a4ab58c3818c90fd47, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1787,6 +1827,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1324121930}
     m_Modifications:
+    - target: {fileID: 2584821486356150288, guid: 5171c8b24c4c32a4ab58c3818c90fd47, type: 3}
+      propertyPath: m_SurfaceArc
+      value: 140
+      objectReference: {fileID: 0}
     - target: {fileID: 2584821486356150290, guid: 5171c8b24c4c32a4ab58c3818c90fd47, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -11722,7 +11766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2584821486356150288, guid: e4b68287a7eb3cc4cb04f159ce510b14, type: 3}
       propertyPath: m_SurfaceArc
-      value: 150
+      value: 140
       objectReference: {fileID: 0}
     - target: {fileID: 2584821486356150290, guid: e4b68287a7eb3cc4cb04f159ce510b14, type: 3}
       propertyPath: m_RootOrder

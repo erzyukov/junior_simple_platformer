@@ -23,15 +23,24 @@ namespace Game
 		{
 			_characterMotion.SetLookDirection(_direction);
 
-			float speed = _speed * _direction;
-			_characterMotion.Move(speed);
+			HandleMovement();
+			HandleJumping();
+		}
 
+		private void HandleJumping()
+		{
 			if (_isJumping)
 			{
-				float jumpForce = _isJumping? _jumpForce: 0;
+				float jumpForce = _isJumping ? _jumpForce : 0;
 				_characterMotion.Jump(jumpForce);
 				_isJumping = false;
 			}
+		}
+
+		private void HandleMovement()
+		{
+			float speed = _speed * _direction;
+			_characterMotion.Move(speed);
 		}
 	}
 }
