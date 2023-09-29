@@ -9,7 +9,6 @@ namespace Game
 		[SerializeField] private Rigidbody2D _rigidbody;
 		[SerializeField] private Collider2D _collider;
 		[SerializeField] private LayerMask _walkableLayers;
-		[SerializeField] private float _groundDetectDistance;
 		[SerializeField] private float _movementSmoothing;
 
 		private bool _isFalling;
@@ -38,7 +37,7 @@ namespace Game
 			if (IsGrounded() && jumpForce > 0)
 			{
 				_rigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-				OnJump.Invoke();
+				OnJump?.Invoke();
 			}
 		}
 
@@ -64,12 +63,12 @@ namespace Game
 
 			if (_rigidbody.velocity.y < fallingSpeedEdge && _isFalling == false)
 			{
-				OnFall.Invoke();
+				OnFall?.Invoke();
 				_isFalling = true;
 			}
 			else if (_rigidbody.velocity.y >= fallingSpeedEdge && _isFalling)
 			{
-				OnLand.Invoke();
+				OnLand?.Invoke();
 				_isFalling = false;
 			}
 		}
