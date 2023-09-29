@@ -8,9 +8,9 @@ namespace Game
 		[SerializeField] private CharacterMotion _characterMotion;
 
 		private const string SpeedAnimationParameter = "Speed";
-		private const string JumpAnimationParameter = "IsJump";
-		private const string FallAnimationParameter = "IsFall";
-		private const string LandAnimationParameter = "IsLand";
+		private const string JumpAnimationParameter = "Jump";
+		private const string FallAnimationParameter = "Fall";
+		private const string LandAnimationParameter = "Land";
 
 		private void Awake()
 		{
