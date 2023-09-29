@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game
@@ -11,7 +9,7 @@ namespace Game
 		[SerializeField] private CharacterMotion _characterMotion;
 		[SerializeField] private Transform[] _patrolPoints;
 
-		const float DistanceToSwitchTarget = 0.03f;
+		private const float DistanceToSwitchTarget = 0.03f;
 
 		private Vector3 _currentTarget;
 		private int _targetIndex;
@@ -39,9 +37,9 @@ namespace Game
 					_targetIndex = 0;
 
 				_currentTarget = _patrolPoints[_targetIndex].position;
+
 				return;
 			}
-
 
 			int direction = Mathf.RoundToInt(distance.normalized.x);
 			_characterMotion.SetLookDirection(direction * (_inverseDirecton? -1: 1));
