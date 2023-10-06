@@ -2069,6 +2069,9 @@ GameObject:
   - component: {fileID: 1130556498}
   - component: {fileID: 1130556500}
   - component: {fileID: 1130556501}
+  - component: {fileID: 1130556502}
+  - component: {fileID: 1130556504}
+  - component: {fileID: 1130556503}
   m_Layer: 3
   m_Name: Hero
   m_TagString: Untagged
@@ -2255,8 +2258,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0272133876797a4ba4949f9fc093aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 1130556500}
+  Animator: {fileID: 1130556500}
+  _characterViability: {fileID: 1130556504}
   _characterMotion: {fileID: 1130556498}
+--- !u!114 &1130556502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130556493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7e437a6095e6e44a0dba7649b98583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 2
+  _attackDelay: 2
+--- !u!61 &1130556503
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130556493}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.035753727, y: -0.64117527}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.4477148, y: 0.6804056}
+  m_EdgeRadius: 0
+--- !u!114 &1130556504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130556493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2b1a153bedeed440adf7db7571ec2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _baseHealth: 10
 --- !u!1 &1131011984
 GameObject:
   m_ObjectHideFlags: 0

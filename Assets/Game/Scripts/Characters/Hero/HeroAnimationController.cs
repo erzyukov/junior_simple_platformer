@@ -2,9 +2,8 @@ using UnityEngine;
 
 namespace Game
 {
-    public class HeroAnimationController : MonoBehaviour
-    {
-		[SerializeField] private Animator _animator;
+    public class HeroAnimationController : CharacterAnimator
+	{
 		[SerializeField] private CharacterMotion _characterMotion;
 
 		private const string SpeedAnimationParameter = "Speed";
@@ -21,7 +20,7 @@ namespace Game
 
 		private void FixedUpdate()
 		{
-			_animator.SetFloat(SpeedAnimationParameter, _characterMotion.CurrentSpeed);
+			Animator.SetFloat(SpeedAnimationParameter, _characterMotion.CurrentSpeed);
 		}
 
 		private void OnDestroy()
@@ -32,12 +31,12 @@ namespace Game
 		}
 
 		private void PlayJump() =>
-			_animator.SetTrigger(JumpAnimationParameter);
+			Animator.SetTrigger(JumpAnimationParameter);
 
 		private void PlayFall() =>
-			_animator.SetTrigger(FallAnimationParameter);
+			Animator.SetTrigger(FallAnimationParameter);
 
 		private void PlayLand() =>
-			_animator.SetTrigger(LandAnimationParameter);
+			Animator.SetTrigger(LandAnimationParameter);
 	}
 }
