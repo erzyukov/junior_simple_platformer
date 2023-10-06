@@ -8,18 +8,20 @@ namespace Game
 		[SerializeField] private bool _inverseDirecton;
 		[SerializeField] private CharacterMotion _characterMotion;
 		[SerializeField] private Transform[] _patrolPoints;
+		[SerializeField] private float _pursuitDistance;
 
 		private const float DistanceToSwitchTarget = 0.03f;
 
-		private Vector3 _currentTarget;
+		private Vector3 _currentPatrolTarget;
 		private int _targetIndex;
+		private Transform _heroTarget;
 
 		private void Start()
 		{
 			if (_patrolPoints.Length == 0)
 				return;
 
-			_currentTarget = _patrolPoints[_targetIndex].position;
+			_currentPatrolTarget = _patrolPoints[_targetIndex].position;
 		}
 
 		private void FixedUpdate()
@@ -27,23 +29,39 @@ namespace Game
 			if (_patrolPoints.Length == 0)
 				return;
 
-			Vector3 distance = _currentTarget - transform.position;
+			float distanceToHero = Vector3.Distance(transform.position, _heroTarget.position);
 
-			if (distance.magnitude < DistanceToSwitchTarget)
+			Vector3 currentTargetDistance;
+
+			if (distanceToHero < _pursuitDistance)
 			{
-				_targetIndex++;
-				
-				if (_targetIndex >= _patrolPoints.Length)
-					_targetIndex = 0;
+				currentTargetDistance = _heroTarget.position - transform.position;
+			}
+			else
+			{
+				currentTargetDistance = _currentPatrolTarget - transform.position;
 
-				_currentTarget = _patrolPoints[_targetIndex].position;
+				if (currentTargetDistance.magnitude < DistanceToSwitchTarget)
+				{
+					_targetIndex++;
 
-				return;
+					if (_targetIndex >= _patrolPoints.Length)
+						_targetIndex = 0;
+
+					_currentPatrolTarget = _patrolPoints[_targetIndex].position;
+
+					return;
+				}
 			}
 
-			int direction = Mathf.RoundToInt(distance.normalized.x);
+			int direction = Mathf.RoundToInt(currentTargetDistance.normalized.x);
 			_characterMotion.SetLookDirection(direction * (_inverseDirecton? -1: 1));
 			_characterMotion.Move(direction * _speed);
+		}
+
+		public void Initialize(Transform hero)
+		{
+			_heroTarget = hero;
 		}
 	}
 }

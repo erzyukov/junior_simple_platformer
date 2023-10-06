@@ -196,6 +196,7 @@ MonoBehaviour:
   _patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
+  _pursuitDistance: 5
 --- !u!114 &383954486870483880
 MonoBehaviour:
   m_ObjectHideFlags: 0
