@@ -8,7 +8,6 @@ namespace Game
 
 		private const string CollectedAnimationParameter = "Collected";
 
-
 		virtual protected void OnTriggerEnter2D(Collider2D collision) =>
 			_animator.SetTrigger(CollectedAnimationParameter);
 
