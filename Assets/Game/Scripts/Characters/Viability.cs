@@ -36,6 +36,7 @@ namespace Game
 		public void Heal(int amount)
 		{
 			_health += amount;
+
 			if (_health > _baseHealth)
 				_health = _baseHealth;
 		}
