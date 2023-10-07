@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public class HeroController : MonoBehaviour
+    public class Hero : MonoBehaviour
     {
 		[SerializeField] private float _speed;
 		[SerializeField] private float _jumpForce;

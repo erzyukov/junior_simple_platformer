@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public class EnemyController : MonoBehaviour
+    public class Enemy : MonoBehaviour
     {
 		[SerializeField] private float _speed;
 		[SerializeField] private bool _inverseDirecton;
@@ -18,6 +18,8 @@ namespace Game
 
 		private void Start()
 		{
+			_heroTarget = FindObjectOfType<Hero>().transform;
+
 			if (_patrolPoints.Length == 0)
 				return;
 
@@ -57,11 +59,6 @@ namespace Game
 			int direction = Mathf.RoundToInt(currentTargetDistance.normalized.x);
 			_characterMotion.SetLookDirection(direction * (_inverseDirecton? -1: 1));
 			_characterMotion.Move(direction * _speed);
-		}
-
-		public void Initialize(Transform hero)
-		{
-			_heroTarget = hero;
 		}
 	}
 }

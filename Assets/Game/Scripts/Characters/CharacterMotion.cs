@@ -13,9 +13,9 @@ namespace Game
 
 		private bool _isFalling;
 
-		public event UnityAction OnJump;
-		public event UnityAction OnFall;
-		public event UnityAction OnLand;
+		public event UnityAction Jumped;
+		public event UnityAction Falling;
+		public event UnityAction Landed;
 		public float CurrentSpeed => Mathf.Abs(_rigidbody.velocity.x);
 
 		private void FixedUpdate()
@@ -37,7 +37,7 @@ namespace Game
 			if (IsGrounded() && jumpForce > 0)
 			{
 				_rigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-				OnJump?.Invoke();
+				Jumped?.Invoke();
 			}
 		}
 
@@ -63,12 +63,12 @@ namespace Game
 
 			if (_rigidbody.velocity.y < fallingSpeedEdge && _isFalling == false)
 			{
-				OnFall?.Invoke();
+				Falling?.Invoke();
 				_isFalling = true;
 			}
 			else if (_rigidbody.velocity.y >= fallingSpeedEdge && _isFalling)
 			{
-				OnLand?.Invoke();
+				Landed?.Invoke();
 				_isFalling = false;
 			}
 		}

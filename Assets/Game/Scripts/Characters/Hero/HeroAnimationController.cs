@@ -13,9 +13,9 @@ namespace Game
 
 		private void Awake()
 		{
-			_characterMotion.OnJump += PlayJump;
-			_characterMotion.OnFall += PlayFall;
-			_characterMotion.OnLand += PlayLand;
+			_characterMotion.Jumped += PlayJump;
+			_characterMotion.Falling += PlayFall;
+			_characterMotion.Landed += PlayLand;
 		}
 
 		private void FixedUpdate()
@@ -25,9 +25,9 @@ namespace Game
 
 		private void OnDestroy()
 		{
-			_characterMotion.OnJump -= PlayJump;
-			_characterMotion.OnFall -= PlayFall;
-			_characterMotion.OnLand -= PlayLand;
+			_characterMotion.Jumped -= PlayJump;
+			_characterMotion.Falling -= PlayFall;
+			_characterMotion.Landed -= PlayLand;
 		}
 
 		private void PlayJump() =>
