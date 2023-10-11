@@ -5,7 +5,7 @@ namespace Game
     public class CharacterAnimator : MonoBehaviour
     {
 		[SerializeField] protected Animator Animator;
-		[SerializeField] private Viability _characterViability;
+		[SerializeField] private Health _characterViability;
 
 		private const string HitAnimationParameter = "Hit";
 		private const string DiedAnimationParameter = "Died";

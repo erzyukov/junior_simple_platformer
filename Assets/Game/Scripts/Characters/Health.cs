@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 namespace Game
 {
-    public class Viability : MonoBehaviour
+    public class Health : MonoBehaviour
     {
 		[SerializeField] private int _baseHealth;
 
@@ -20,25 +20,17 @@ namespace Game
 
 		public void DealDamage(int amount)
 		{
-			_health -= amount;
+			_health = Mathf.Max(_health - amount, 0);
 
-			if (_health <= 0)
-			{
-				_health = 0;
+			if (_health == 0)
 				Died?.Invoke();
-			}
 			else
-			{
 				DamageTaken?.Invoke();
-			}
 		}
 
 		public void Heal(int amount)
 		{
-			_health += amount;
-
-			if (_health > _baseHealth)
-				_health = _baseHealth;
+			_health = Mathf.Min(_health + amount, _baseHealth);
 		}
 
 		public void Die()

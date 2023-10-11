@@ -10,7 +10,7 @@ namespace Game
 		{
 			base.OnTriggerEnter2D(collision);
 
-			Viability viabilityComponent = collision.GetComponent<Viability>();
+			Health viabilityComponent = collision.GetComponent<Health>();
 
 			if (viabilityComponent == null)
 				return;

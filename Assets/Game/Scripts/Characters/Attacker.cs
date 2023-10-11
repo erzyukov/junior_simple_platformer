@@ -9,7 +9,7 @@ namespace Game
 		[SerializeField] private float _attackDelay;
 
 		private float _attackTimer;
-		private List<Viability> _targets = new List<Viability>();
+		private List<Health> _targets = new List<Health>();
 
 		private void Update()
 		{
@@ -19,7 +19,7 @@ namespace Game
 
 		private void OnTriggerEnter2D(Collider2D collision)
 		{
-			Viability viabilityComponent = collision.GetComponent<Viability>();
+			Health viabilityComponent = collision.GetComponent<Health>();
 
 			if (viabilityComponent != null)
 				_targets.Add(viabilityComponent);
@@ -30,14 +30,14 @@ namespace Game
 			if (_attackTimer > 0 || _targets.Count == 0)
 				return;
 
-			Viability target = _targets[0];
+			Health target = _targets[0];
 			target.DealDamage(_damage);
 			_attackTimer = _attackDelay;
 		}
 
 		private void OnTriggerExit2D(Collider2D collision)
 		{
-			Viability viabilityComponent = collision.GetComponent<Viability>();
+			Health viabilityComponent = collision.GetComponent<Health>();
 
 			if (viabilityComponent != null)
 				_targets.Remove(viabilityComponent);
